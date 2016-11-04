@@ -1,6 +1,24 @@
 #game {
-  display: block;
   border: solid 2px black;
-  margin:  30px auto;
+  position: absolute;
+  right: 30%;
+  top: 10%;
+
 /*  background-image: url("http://apod.nasa.gov/apod/image/1412/ic1848_WISEantonucci_1824.jpg");*/
+}
+
+#overlay {
+  width: 600px;
+  height: 600px;
+  background-color: black;
+  position: absolute;
+  right: 30%;
+  top: 10%;
+}
+
+#container{
+}
+
+h1 {
+  color: white;
 }
