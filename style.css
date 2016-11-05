@@ -14,11 +14,18 @@
   position: absolute;
   right: 30%;
   top: 10%;
-}
-
-#container{
+  text-align: center;
 }
 
 h1 {
+  margin-top: 200px;
   color: white;
+}
+
+button {
+  margin: auto;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 16px;
 }
