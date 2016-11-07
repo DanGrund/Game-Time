@@ -117,10 +117,13 @@ describe("Ship", function(){
     assert.equal(ship.direction, 'right')
   });
 
-  it.skip('move with leftPressed parameters should decrement x by 5, and assign a direction left', function (){
+  it('move with leftPressed parameters should decrement x by 5, and assign a direction left', function (){
     var ship = new Ship (300, 300, 30, 30, context);
     var leftPressed = true;
-    ship.move(leftPressed);
+    var rightPressed = false;
+    var upPressed = false;
+    var downPressed = false;
+    ship.move(rightPressed, leftPressed, upPressed, downPressed);
     assert.equal(ship.x, 295);
     assert.equal(ship.direction, 'left')
   });
@@ -130,34 +133,40 @@ it('should have a method called collision', function(){
   assert.isFunction(ship.collision)
 });
 
-it.skip('if collision happens within the first three seconds, nothing happens', function (){
+it('if collision happens within the first three seconds, nothing happens', function (){
   var deathCounter = 0;
   var counter = 3;
   var ship = new Ship (300, 300, 30, 30, context);
   var asteroid = new Asteroid (300, 300, 50, 50);
-  assert()
+  asteroidArray = [];
+  asteroidArray.push(asteroid);
+  assert.equal(ship.collision(asteroidArray, counter), "collisions cannot be detected")
 });
 
-it.skip('should lose a life when the asteroid and ship cross boundaries after the first three seconds', function(){
-  var lives = 3;
+it('should lose a life when the asteroid and ship cross boundaries after the first three seconds', function(){
+  var deathCounter = 0;
   var counter = 300;
   var ship = new Ship (15, 30, 20, 25, context);
   var asteroid = new Asteroid (15, 30, 20, 25);
   var asteroidArray = [];
-  asteroidArray.push(asteroid)
-  ship.collision(asteroidArray, counter)
-  assert.equal(lives, 2);
+  asteroidArray.push(asteroid);
+  var output = ship.collision(asteroidArray, counter);
+  assert.equal(output, 2);
 });
 
 it.skip('if there is one life and the asteroid and ship collide, collision should throw an alert of "try harder next time!"', function(){
-  var lives = 1;
   var counter = 200;
   var ship = new Ship (15, 30, 20, 25, context);
   var asteroid = new Asteroid (15,30,20,25);
+  var asteroidOrigin = new Asteroid (300, 300, 300, 300);
   var asteroidArray = [];
   asteroidArray.push(asteroid);
-  ship.collision(asteroidArray, counter)
-  assert.throws(ship.collision, alert, "try harder next time!");
+  asteroidArray.push(asteroidOrigin);
+  ship.collision(asteroidArray, counter);
+  counter = 400;
+  ship.collision(asteroidArray, counter);
+  counter = 600;
+  assert.equal(ship.collision(asteroidArray, counter), "game over");
 });
 
 // it.skip('if there is one life and the asteroid and ship cross boundaries, the document should reload"', function(){
