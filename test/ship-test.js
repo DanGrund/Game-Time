@@ -1,10 +1,8 @@
 var chai = require('chai');
 var assert = chai.assert;
 
-const {Ship, drawLives} = require('../lib/ship.js')
-//var rightPressed = require('../lib/index.js')
-
-const Asteroid = require('../lib/asteroids.js')
+const {Ship, drawLives} = require('../lib/ship.js');
+const Asteroid = require('../lib/asteroids.js');
 
 describe("Ship", function(){
 
@@ -67,14 +65,26 @@ describe("Ship", function(){
     assert.isFunction(ship.move)
   });
 
-  // it('move with rightPressed and upPressed parameters should increment x by 5, and assign a direction of upRight', function (){
+  it('move with rightPressed and upPressed should increment the x and decrement the y properties by 3', function (){
+    var ship = new Ship (300, 300, 30, 30, context);
+    var rightPressed = true;
+    var upPressed = true;
+  //  if (upPressed){this.x +=3; this.y -=3; this.direction = 'upRight'}
+    ship.move(rightPressed && upPressed);
+    assert.equal(ship.x, 303);
+    assert.equal(ship.y, 303);
+    assert.equal(ship.direction, "upRight")
+  });
+
+  // it.skip('when move is called and the direction is "upRight" the x property should increment and the y property should decrement by 3', function(){
   //   var ship = new Ship (300, 300, 30, 30, context);
-  //   ship.move('rightPressed && upPressed')
-  //   assert.equal(ship.x, 305)
-  //   assert.equal(ship.y, 300)
-  //   assert.equal(ship.direction, 'right')
-  // });
-  //
+  //   var rightPressed = true;
+  //   var upPressed = true;
+  //   ship.direction = "upRight"
+  //   ship.move(rightPressed && upPressed)
+  //   assert.equal(ship.x, 303);
+  //   assert.equal(ship.y, 303);
+  // })
   // it('move with rightPressed and downPressed parameters should increment x by 5, and assign a direction of downRight', function (){
   //   var ship = new Ship (300, 300, 30, 30, context);
   //   ship.move('rightPressed && downPressed')
@@ -99,67 +109,81 @@ describe("Ship", function(){
   //   assert.equal(ship.direction, 'right')
   // });
 
+  it('move with rightPressed parameters should increment x by 5, and assign a direction right', function (){
+    var ship = new Ship (300, 300, 30, 30, context);
+    var rightPressed = true;
+    ship.move(rightPressed)
+    assert.equal(ship.x, 305)
+    assert.equal(ship.direction, 'right')
+  });
 
+  it.skip('move with leftPressed parameters should decrement x by 5, and assign a direction left', function (){
+    var ship = new Ship (300, 300, 30, 30, context);
+    var leftPressed = true;
+    ship.move(leftPressed);
+    assert.equal(ship.x, 295);
+    assert.equal(ship.direction, 'left')
+  });
 
 it('should have a method called collision', function(){
   var ship = new Ship (15, 30, 20, 25);
   assert.isFunction(ship.collision)
 });
 
-// it('if collision happens within the first three seconds, nothing happens', function (){
-//   var deathCounter = 0;
-//   var counter = 3;
-//   var ship = new Ship (300, 300, 30, 30, context);
-//   var asteroid = new Asteroid (300, 300, 50, 50);
-//   assert.equal(return)
-// });
+it.skip('if collision happens within the first three seconds, nothing happens', function (){
+  var deathCounter = 0;
+  var counter = 3;
+  var ship = new Ship (300, 300, 30, 30, context);
+  var asteroid = new Asteroid (300, 300, 50, 50);
+  assert()
+});
 
-// it('should lose a life when the asteroid and ship cross boundaries after the first three seconds', function(){
-//   var lives = 3;
-//   var counter = 200;
-//   var ship = new Ship (15, 30, 20, 25, context);
-//   var asteriod = new Asteroid (15,30,20,25);
-//   var asteroidArray = [];
-//   asteroidArray.push(asteroid)
-//   ship.collision(asteroidArray, counter)
-//   assert.equal(lives, 2);
-// });
-//
-// it('if there is one life and the asteroid and ship cross boundaries, there is an alert of "game over loser"', function(){
+it.skip('should lose a life when the asteroid and ship cross boundaries after the first three seconds', function(){
+  var lives = 3;
+  var counter = 300;
+  var ship = new Ship (15, 30, 20, 25, context);
+  var asteroid = new Asteroid (15, 30, 20, 25);
+  var asteroidArray = [];
+  asteroidArray.push(asteroid)
+  ship.collision(asteroidArray, counter)
+  assert.equal(lives, 2);
+});
+
+it.skip('if there is one life and the asteroid and ship collide, collision should throw an alert of "try harder next time!"', function(){
+  var lives = 1;
+  var counter = 200;
+  var ship = new Ship (15, 30, 20, 25, context);
+  var asteroid = new Asteroid (15,30,20,25);
+  var asteroidArray = [];
+  asteroidArray.push(asteroid);
+  ship.collision(asteroidArray, counter)
+  assert.throws(ship.collision, alert, "try harder next time!");
+});
+
+// it.skip('if there is one life and the asteroid and ship cross boundaries, the document should reload"', function(){
 //   var lives = 1;
 //   var counter = 200;
 //   var ship = new Ship (15, 30, 20, 25, context);
-//   var asteriod = new Asteroid (15,30,20,25);
-//   var asteroidArray = [];
-//   asteroidArray.push(asteroid);
-//   ship.collision(asteroidArray, counter)
-//   assert(alert, "game over loser");
-// });
-//
-// it('if there is one life and the asteroid and ship cross boundaries, the document should reload"', function(){
-//   var lives = 1;
-//   var counter = 200;
-//   var ship = new Ship (15, 30, 20, 25, context);
-//   var asteriod = new Asteroid (15,30,20,25);
+//   var asteroid = new Asteroid (15,30,20,25);
 //   var asteroidArray = [];
 //   asteroidArray.push(asteroid);
 //   ship.collision(asteroidArray, counter);
-//   assert(document.location.reload());
+//   assert();
 // });
 
-it('drawLives should be a function', function () {
+it.skip('drawLives should be a function', function () {
   assert.isFunction(drawLives);
 });
-//
+
 // it('drawLives should fillText with the current life value after a collision', function (){
 //   var lives = 3;
 //   var counter = 200;
 //   var ship = new Ship (15, 30, 20, 25, context);
-//   var asteriod = new Asteroid (15,30,20,25);
+//   var asteroid = new Asteroid (15,30,20,25);
 //   var asteroidArray = [];
 //   asteroidArray.push(asteroid);
 //   ship.collision(asteroidArray, counter);
-//   assert(drawLives.context.fillText('Lives: ' + lives, 8, 40), "context.fillText('Lives: ' + lives, 8, 40)");
-//});
+//   assert
+// });
 
 });

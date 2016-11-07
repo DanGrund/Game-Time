@@ -1,7 +1,7 @@
 var chai = require('chai');
 var assert = chai.assert;
 
-const Asteroid = require('../lib/asteroids.js')
+const Asteroid = require('../lib/asteroids.js');
 
 describe("Asteroid", function(){
 
