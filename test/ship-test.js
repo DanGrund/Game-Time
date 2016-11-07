@@ -65,54 +65,61 @@ describe("Ship", function(){
     assert.isFunction(ship.move)
   });
 
-  it('move with rightPressed and upPressed should increment the x and decrement the y properties by 3', function (){
+  it('move with rightPressed and upPressed should increment the x and decrement the y properties by 3 and assign a direction of upright', function (){
     var ship = new Ship (300, 300, 30, 30, context);
+    var leftPressed = false;
     var rightPressed = true;
     var upPressed = true;
-  //  if (upPressed){this.x +=3; this.y -=3; this.direction = 'upRight'}
-    ship.move(rightPressed && upPressed);
+    var downPressed = false;
+    ship.move(rightPressed, leftPressed, upPressed, downPressed);
     assert.equal(ship.x, 303);
-    assert.equal(ship.y, 303);
+    assert.equal(ship.y, 297);
     assert.equal(ship.direction, "upRight")
   });
 
-  // it.skip('when move is called and the direction is "upRight" the x property should increment and the y property should decrement by 3', function(){
-  //   var ship = new Ship (300, 300, 30, 30, context);
-  //   var rightPressed = true;
-  //   var upPressed = true;
-  //   ship.direction = "upRight"
-  //   ship.move(rightPressed && upPressed)
-  //   assert.equal(ship.x, 303);
-  //   assert.equal(ship.y, 303);
-  // })
-  // it('move with rightPressed and downPressed parameters should increment x by 5, and assign a direction of downRight', function (){
-  //   var ship = new Ship (300, 300, 30, 30, context);
-  //   ship.move('rightPressed && downPressed')
-  //   assert.equal(ship.x, 305)
-  //   assert.equal(ship.y, 300)
-  //   assert.equal(ship.direction, 'right')
-  // });
-  //
-  // it('move with leftPressed and upPressed parameters should decrement x by 5, and assign a direction of upLeft', function (){
-  //   var ship = new Ship (300, 300, 30, 30, context);
-  //   ship.move('leftPressed && downPressed')
-  //   assert.equal(ship.x, 305)
-  //   assert.equal(ship.y, 300)
-  //   assert.equal(ship.direction, 'right')
-  // });
-  //
-  // it('move with leftPressed and downPressed parameters should increment x by 5, and assign a direction of upRight', function (){
-  //   var ship = new Ship (300, 300, 30, 30, context);
-  //   ship.move('leftPressed && downPressed')
-  //   assert.equal(ship.x, 305)
-  //   assert.equal(ship.y, 300)
-  //   assert.equal(ship.direction, 'right')
-  // });
+  it('move with rightPressed and downPressed parameters should increment x and y by 3, and assign a direction of downRight', function (){
+    var ship = new Ship (300, 300, 30, 30, context);
+    var leftPressed = false;
+    var rightPressed = true;
+    var upPressed = false;
+    var downPressed = true;
+    ship.move(rightPressed, leftPressed, upPressed, downPressed);
+    assert.equal(ship.x, 303)
+    assert.equal(ship.y, 303)
+    assert.equal(ship.direction, 'downRight')
+  });
+
+  it('move with leftPressed and upPressed parameters should decrement x and y by 3, and assign a direction of upLeft', function (){
+    var ship = new Ship (300, 300, 30, 30, context);
+    var leftPressed = true;
+    var rightPressed = false;
+    var upPressed = true;
+    var downPressed = false;
+    ship.move(rightPressed, leftPressed, upPressed, downPressed);
+    assert.equal(ship.x, 297)
+    assert.equal(ship.y, 297)
+    assert.equal(ship.direction, 'upLeft')
+  });
+
+  it('move with leftPressed and downPressed parameters should decrement x and increment y by 3, and assign a direction of downLeft', function (){
+    var ship = new Ship (300, 300, 30, 30, context);
+    var leftPressed = true;
+    var rightPressed = false;
+    var upPressed = false;
+    var downPressed = true;
+    ship.move(rightPressed, leftPressed, upPressed, downPressed);
+    assert.equal(ship.x, 297)
+    assert.equal(ship.y, 303)
+    assert.equal(ship.direction, 'downLeft')
+  });
 
   it('move with rightPressed parameters should increment x by 5, and assign a direction right', function (){
     var ship = new Ship (300, 300, 30, 30, context);
+    var leftPressed = false;
     var rightPressed = true;
-    ship.move(rightPressed)
+    var upPressed = false;
+    var downPressed = false;
+    ship.move(rightPressed, leftPressed, upPressed, downPressed);
     assert.equal(ship.x, 305)
     assert.equal(ship.direction, 'right')
   });
@@ -126,6 +133,28 @@ describe("Ship", function(){
     ship.move(rightPressed, leftPressed, upPressed, downPressed);
     assert.equal(ship.x, 295);
     assert.equal(ship.direction, 'left')
+  });
+
+  it('move with upPressed parameters should decrement y by 5, and assign a direction up', function (){
+    var ship = new Ship (300, 300, 30, 30, context);
+    var leftPressed = false;
+    var rightPressed = false;
+    var upPressed = true;
+    var downPressed = false;
+    ship.move(rightPressed, leftPressed, upPressed, downPressed);
+    assert.equal(ship.y, 295);
+    assert.equal(ship.direction, 'up')
+  });
+
+  it('move with downPressed parameters should increment y by 5, and assign a direction down', function (){
+    var ship = new Ship (300, 300, 30, 30, context);
+    var leftPressed = false;
+    var rightPressed = false;
+    var upPressed = false;
+    var downPressed = true;
+    ship.move(rightPressed, leftPressed, upPressed, downPressed);
+    assert.equal(ship.y, 305);
+    assert.equal(ship.direction, 'down')
   });
 
 it('should have a method called collision', function(){
@@ -154,7 +183,7 @@ it('should lose a life when the asteroid and ship cross boundaries after the fir
   assert.equal(output, 2);
 });
 
-it.skip('if there is one life and the asteroid and ship collide, collision should throw an alert of "try harder next time!"', function(){
+it.skip('if there is one life and the asteroid and ship collide, collision should result in an alert of "try harder next time!" and a document reload', function(){
   var counter = 200;
   var ship = new Ship (15, 30, 20, 25, context);
   var asteroid = new Asteroid (15,30,20,25);
@@ -169,30 +198,9 @@ it.skip('if there is one life and the asteroid and ship collide, collision shoul
   assert.equal(ship.collision(asteroidArray, counter), "game over");
 });
 
-// it.skip('if there is one life and the asteroid and ship cross boundaries, the document should reload"', function(){
-//   var lives = 1;
-//   var counter = 200;
-//   var ship = new Ship (15, 30, 20, 25, context);
-//   var asteroid = new Asteroid (15,30,20,25);
-//   var asteroidArray = [];
-//   asteroidArray.push(asteroid);
-//   ship.collision(asteroidArray, counter);
-//   assert();
-// });
 
-it.skip('drawLives should be a function', function () {
+it('drawLives should be a function', function () {
   assert.isFunction(drawLives);
 });
-
-// it('drawLives should fillText with the current life value after a collision', function (){
-//   var lives = 3;
-//   var counter = 200;
-//   var ship = new Ship (15, 30, 20, 25, context);
-//   var asteroid = new Asteroid (15,30,20,25);
-//   var asteroidArray = [];
-//   asteroidArray.push(asteroid);
-//   ship.collision(asteroidArray, counter);
-//   assert
-// });
 
 });
