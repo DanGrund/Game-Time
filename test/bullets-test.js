@@ -142,25 +142,23 @@ assert.isFunction(bullet.collision);
 })
 
 it('if bullet collides with asteroid score should increase', function (){
-  var score = 0;
   var ship = new Ship(10, 10, 10, 10, context);
   var bullet = new Bullet (ship, context);
   var asteroid = new Asteroid (10, 10, 20, 25, "upRight");
   var asteroidArray = [];
   asteroidArray.push(asteroid);
-  bullet.collision(asteroidArray);
-  assert.equal(score, 1)
+  var output = bullet.collision(asteroidArray);
+  assert.equal(output, 1);
 })
 
 it('if bullet collides with asteroid, asteroid should be removed from asteroidArray', function (){
-  var score = 0;
   var ship = new Ship(10, 10, 10, 10, context);
   var bullet = new Bullet (ship, context);
   var asteroid = new Asteroid (10, 10, 20, 25, "upRight");
   var asteroidArray = [];
   asteroidArray.push(asteroid);
   bullet.collision(asteroidArray);
-  assert.equal(asteroidArray, [])
+  assert.equal(asteroidArray.length, 0);
 })
 
 it('drawLives should be a function', function () {
