@@ -25,6 +25,7 @@ h1 {
 button {
   margin: auto;
   border: none;
+  outline: none;
   background-color: black;
   color: white;
   font-size: 16px;
