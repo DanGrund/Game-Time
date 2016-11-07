@@ -1,3 +1,6 @@
+body{
+  font-family: helvetica, sans-serif;;
+}
 #game {
   border: solid 2px black;
   position: absolute;
@@ -28,4 +31,9 @@ button {
   background-color: black;
   color: white;
   font-size: 16px;
+}
+
+#instructions {
+  margin-top: 200px;
+  color: white;
 }
