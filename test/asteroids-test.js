@@ -43,13 +43,13 @@ describe("Asteroid", function(){
 
   it('should have a method called draw', function(){
     var asteroid = new Asteroid (15, 30, 20, 25);
-    assert.isFunction(asteroid.draw)
+    assert.isFunction(asteroid.draw);
   });
 
 
   it('should have a method called move', function(){
     var asteroid = new Asteroid (15, 30, 20, 25);
-    assert.isFunction(asteroid.move)
+    assert.isFunction(asteroid.move);
   });
 
   it('move should increment the x value by two if the asteroids direction is assigned as right', function(){
@@ -108,7 +108,7 @@ describe("Asteroid", function(){
     var asteroid = new Asteroid (601, 30, 20, 25, "right");
     asteroid.move();
     assert.equal(asteroid.x, 1);
-  })
+  });
 
 
   it('if move is called and the y coordinate is greater than 600, y is decremented by 600', function(){
@@ -128,4 +128,4 @@ describe("Asteroid", function(){
     asteroid.move();
     assert.equal(asteroid.y, 599);
   });
-})
+});
