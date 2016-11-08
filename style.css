@@ -1,3 +1,6 @@
+body{
+  font-family: helvetica, sans-serif;;
+}
 #game {
   border: solid 2px black;
   position: absolute;
@@ -24,6 +27,11 @@
   right: 30%;
   top: 10%;
   text-align: center;
+}
+
+#instructions {
+  margin-top: 200px;
+  color: white;
 }
 
 h1, h2 {
