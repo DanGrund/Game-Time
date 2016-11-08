@@ -3,7 +3,7 @@
   position: absolute;
   right: 30%;
   top: 10%;
- background-color: black;
+  background-color: black;
 }
 
 #overlay {
@@ -16,7 +16,17 @@
   text-align: center;
 }
 
-h1 {
+#end-overlay {
+  width: 600px;
+  height: 600px;
+  background-color: black;
+  position: absolute;
+  right: 30%;
+  top: 10%;
+  text-align: center;
+}
+
+h1, h2 {
   margin-top: 200px;
   color: white;
 }
