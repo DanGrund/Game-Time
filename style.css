@@ -1,6 +1,7 @@
 body{
   font-family: helvetica, sans-serif;;
 }
+
 #game {
   border: solid 2px black;
   position: absolute;
