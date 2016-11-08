@@ -2,20 +2,6 @@ body{
   font-family: helvetica, sans-serif;;
 }
 
-h1 {
-  margin-top: 200px;
-  color: white;
-}
-
-button {
-  margin: auto;
-  border: none;
-  outline: none;
-  background-color: black;
-  color: white;
-  font-size: 16px;
-}
-
 #game {
   border: solid 2px black;
   position: absolute;
@@ -34,8 +20,31 @@ button {
   text-align: center;
 }
 
+#end-overlay {
+  width: 600px;
+  height: 600px;
+  background-color: black;
+  position: absolute;
+  right: 30%;
+  top: 10%;
+  text-align: center;
+}
 
 #instructions {
   margin-top: 200px;
   color: white;
+}
+
+h1, h2 {
+  margin-top: 200px;
+  color: white;
+}
+
+button {
+  margin: auto;
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  font-size: 16px;
 }
