@@ -25,7 +25,7 @@ button {
   background-image: url('lib/images/starBackground.jpg');
 }
 
-#overlay {
+#start-overlay {
   width: 600px;
   height: 600px;
   background-color: black;
@@ -47,4 +47,9 @@ button {
 
 #instructions {
   margin-top: 200px;
+}
+
+#instructions span {
+  color: red;
+  font-weight: bold;
 }
