@@ -30,16 +30,16 @@ describe("Bullet", function(){
     assert.equal(bullet.y, 310);
   });
 
-  it('should have a set width of 10', function(){
+  it('should have a set width of 5', function(){
     var ship = new Ship (300, 300, 30, 30, context);
     var bullet = new Bullet (ship, context);
-    assert.equal(bullet.width, 10);
+    assert.equal(bullet.width, 5);
   });
 
-  it('should have a set height of 10', function(){
+  it('should have a set height of 5', function(){
     var ship = new Ship (300, 300, 30, 30, context);
     var bullet = new Bullet (ship, context);
-    assert.equal(bullet.height, 10);
+    assert.equal(bullet.height, 5);
   });
 
   it('should base the direction on the ship direction', function () {
