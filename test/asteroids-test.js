@@ -52,56 +52,56 @@ describe("Asteroid", function(){
     assert.isFunction(asteroid.move);
   });
 
-  it('move should increment the x value by two if the asteroids direction is assigned as right', function(){
+  it('move should increment the x value by 1 if the asteroids direction is assigned as right', function(){
     var asteroid = new Asteroid (15, 30, 20, 25, "right");
     asteroid.move();
-    assert.equal(asteroid.x, 17);
+    assert.equal(asteroid.x, 16);
   });
 
-  it('move should decrement the x value by two if the asteroids direction is assigned as left', function(){
+  it('move should decrement the x value by 1 if the asteroids direction is assigned as left', function(){
       var asteroid = new Asteroid (15, 30, 20, 25, "left");
       asteroid.move();
-      assert.equal(asteroid.x, 13);
+      assert.equal(asteroid.x, 14);
     });
 
-  it('move should decrement the y value by two if the asteroids direction is assigned as up', function(){
+  it('move should decrement the y value by 1 if the asteroids direction is assigned as up', function(){
       var asteroid = new Asteroid (15, 30, 20, 25, "up");
       asteroid.move();
-      assert.equal(asteroid.y, 28);
+      assert.equal(asteroid.y, 29);
   });
 
-  it('move should increment the y value by two if the asteroids direction is assigned as down', function(){
+  it('move should increment the y value by 1 if the asteroids direction is assigned as down', function(){
       var asteroid = new Asteroid (15, 30, 20, 25, "down");
       asteroid.move();
-      assert.equal(asteroid.y, 32);
+      assert.equal(asteroid.y, 31);
   });
 
-  it('move should decrement the x and y value by two if the asteroids direction is assigned as upLeft', function(){
+  it('move should decrement the x and y value by 1 if the asteroids direction is assigned as upLeft', function(){
       var asteroid = new Asteroid (15, 30, 20, 25, "upLeft");
       asteroid.move();
-      assert.equal(asteroid.x, 13);
-      assert.equal(asteroid.y, 28);
+      assert.equal(asteroid.x, 14);
+      assert.equal(asteroid.y, 29);
   });
 
-  it('move should increment the x and decrement the y value by two if the asteroids direction is assigned as upRight', function(){
+  it('move should increment the x and decrement the y value by 1 if the asteroids direction is assigned as upRight', function(){
       var asteroid = new Asteroid (15, 30, 20, 25, "upRight");
       asteroid.move();
-      assert.equal(asteroid.x, 17);
-      assert.equal(asteroid.y, 28);
+      assert.equal(asteroid.x, 16);
+      assert.equal(asteroid.y, 29);
   });
 
-  it('move should decrement the x and increment the y value by two if the asteroids direction is assigned as downLeft', function(){
+  it('move should decrement the x and increment the y value by 1 if the asteroids direction is assigned as downLeft', function(){
       var asteroid = new Asteroid (15, 30, 20, 25, "downLeft");
       asteroid.move();
-      assert.equal(asteroid.x, 13);
-      assert.equal(asteroid.y, 32);
+      assert.equal(asteroid.x, 14);
+      assert.equal(asteroid.y, 31);
   });
 
-  it('move should increment the x and y value by two if the asteroids direction is assigned as downRight', function(){
+  it('move should increment the x and y value by 2 if the asteroids direction is assigned as downRight', function(){
       var asteroid = new Asteroid (15, 30, 20, 25, "downRight");
       asteroid.move();
-      assert.equal(asteroid.x, 17);
-      assert.equal(asteroid.y, 32);
+      assert.equal(asteroid.x, 16);
+      assert.equal(asteroid.y, 31);
   });
 
   it('if move is called and the x coordinate is greater than 600, x is decremented by 600', function(){
