@@ -3,27 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>Game Time</title>
+  <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
   <body>
-    <div id="overlay"><h1>ASTEROIDS</h1>
+    <div id="start-overlay"><p class="title">Revenge <span>of the</span> Planets</p>
       <button autofocus>start</button>
-      <p id="instructions">
+      <p class="info">
         INSTRUCTIONS
-        <br>• arrow keys control the ship •
-        <br>• space bar fires bullets •
-        <br>• the ship can travel and fire diagonally •
-        <br>• hit spacebar or enter to start game! •
+        <br>
+        <br>• <span>arrow keys</span> control the ship •
+        <br>• <span>space bar</span> fires bullets •
+        <br>• <span>enter</span> to start game! •
+        <br>* ship invincible while red *
       </p>
     </div>
 
-    <div id="end-overlay"><h1>ASTEROIDS</h1>
-      <p>GAME OVER</p>
+    <div id="end-overlay"><p class="title">Revenge <span>of the</span> Planets</p>
+      <br>
       <button id="restart">TRY AGAIN!</button><br><br>
     </div>
 
     <canvas id="game" width = "600" height = "600" style="display: none"></canvas>
+    
     <script src="lib/index.js"></script>
     <script src="main.bundle.js"></script>
+    <audio src="lib/Carl-Sagan-Quotes.mp3" autoplay></audio>
   </body>
 </html>
