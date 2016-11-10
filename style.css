@@ -1,15 +1,16 @@
 body{
-  font-family: 'Monoton', cursive;
   color: white;
+  font-family: 'Monoton', cursive;
 }
 
 button {
   margin: 40px auto;
-  border: none;
-  outline: none;
+
   background-color: black;
+  border: none;
   color: white;
   font-size: 16px;
+  outline: none;
 }
 
 .title {
@@ -17,8 +18,9 @@ button {
 }
 
 .title span {
-  padding: -20px, auto;
   display: block;
+  padding: -20px, auto;
+
   font-size: 16px;
 }
 
@@ -33,29 +35,34 @@ button {
 }
 
 #game {
-  border: solid 2px black;
   position: absolute;
   right: 30%;
   top: 10%;
+
+  border: solid 2px black;
   background-image: url('lib/images/starBackground.jpg');
 }
 
 #start-overlay {
-  width: 600px;
-  height: 600px;
-  background-color: black;
   position: absolute;
   right: 30%;
   top: 10%;
+
+  width: 600px;
+  height: 600px;
+
+  background-color: black;
   text-align: center;
 }
 
 #end-overlay {
-  width: 600px;
-  height: 600px;
-  background-color: black;
   position: absolute;
   right: 30%;
   top: 10%;
+
+  width: 600px;
+  height: 600px;
+
+  background-color: black;
   text-align: center;
 }
